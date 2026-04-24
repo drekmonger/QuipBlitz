@@ -793,6 +793,7 @@ const PHRASES = Object.entries(PHRASE_GROUPS).flatMap(([category, phrases]) =>
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const initialSeconds = 180;
 const wrongGuessPenalty = 2;
+const solveBonusSeconds = 10;
 const shortPhraseThreshold = 17;
 const betweenPuzzleDelay = 520;
 const highScoreKey = "quip-blitz-high-score-v1";
@@ -857,7 +858,7 @@ function letterCount(phrase) {
 }
 
 function puzzleBonus(phrase) {
-  return letterCount(phrase) > shortPhraseThreshold ? 5 : 3;
+  return solveBonusSeconds;
 }
 
 function formatTime(seconds) {

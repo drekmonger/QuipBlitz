@@ -189,6 +189,7 @@ h1 {
   display: grid;
   gap: 12px;
   justify-items: center;
+  transform: translateY(clamp(-34px, -4vh, -18px));
   width: 100%;
 }
 
