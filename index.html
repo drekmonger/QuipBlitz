@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quip Blitz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
+    <main class="app" aria-live="polite">
+      <section class="hud" aria-label="Run status">
+        <div class="brand">
+          <img class="brand-logo" src="quipblitz.png" alt="Quip Blitz" />
+        </div>
+
+        <div class="meters">
+          <div class="meter timer-meter">
+            <span class="meter-label">Time</span>
+            <strong id="timer">3:00</strong>
+            <span id="timerBonusPop" class="timer-bonus-pop"></span>
+            <span id="timerPenaltyPop" class="timer-penalty-pop"></span>
+          </div>
+          <div class="meter">
+            <span class="meter-label">Solved</span>
+            <strong id="solvedCount">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="keyboard-panel" aria-label="Letter keyboard">
+        <button id="continuePrompt" class="continue-prompt" type="button" aria-live="polite"></button>
+        <div id="letterGrid" class="letter-grid"></div>
+      </section>
+
+      <section class="stage" aria-label="Current puzzle">
+        <div class="puzzle-stack">
+          <div class="puzzle-zone">
+            <div id="puzzleBoard" class="puzzle-board intro-board" aria-label="Phrase board"></div>
+          </div>
+          <div class="category-line">
+            <strong id="category">Ready?</strong>
+          </div>
+        </div>
+
+      </section>
+
+      <div id="startOverlay" class="overlay is-visible">
+        <div class="dialog">
+          <img class="title-logo" src="quipblitz.png" alt="Quip Blitz" />
+          <ul class="start-rules" aria-label="How to play">
+            <li>Type letters to reveal the phrase.</li>
+            <li>Wrong letters cost two seconds.</li>
+            <li>Solve phrases to add bonus time.</li>
+          </ul>
+          <p id="startBest" class="best-line">Best run: 0 phrases</p>
+          <button id="startButton" class="primary-button" type="button">Start Run</button>
+        </div>
+      </div>
+
+      <div id="endOverlay" class="overlay">
+        <div class="dialog">
+          <p class="eyebrow">Run Complete</p>
+          <dl class="stats-list">
+            <div>
+              <dt>Correct sentences</dt>
+              <dd id="finalSolved">0</dd>
+            </div>
+            <div>
+              <dt>Correct keypresses</dt>
+              <dd id="finalCorrectKeys">0</dd>
+            </div>
+            <div>
+              <dt>Incorrect keypresses</dt>
+              <dd id="finalIncorrectKeys">0</dd>
+            </div>
+            <div>
+              <dt>Accuracy</dt>
+              <dd id="finalAccuracy">0%</dd>
+            </div>
+            <div>
+              <dt>Best run</dt>
+              <dd id="finalBest">0</dd>
+            </div>
+          </dl>
+          <button id="restartButton" class="primary-button" type="button">Try Again</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
